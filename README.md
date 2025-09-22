@@ -1,9 +1,25 @@
+ <div align="center">
+ <h1>Project Discontinued (Temporarily) 🚨</h1>
+ <h3>This project is currently discontinued as it has started incurring charges on due to google cloud api. I will try to make some changes to optimize it. Till then, it remains inactive.</h3>
+ <br />
+<h3>If you'd like to support or help fund this project to keep it running, You can make small contibutions. Your support would be greatly appreciated! 🙌 -->
+Thank you for your understanding! 🚀</h3>
+<h3>You all can support me here: <a href="https://buymeacoffee.com/satendra03" target="_blank"><img src="https://img.shields.io/badge/Buy%20Me%20A%20Coffee-FFDD00.svg?style=for-the-badge&logo=Buy-Me-A-Coffee&logoColor=black"></a></h3>
+<h3> Or UPI: satendrakumarparteti@oksbi </h3>
 
 <div align="center">
   <h1 align="center"></h1 >
   <a href="https://trip-planner-by-satendra.vercel.app/" target="_blank">
     <img src="https://i.ibb.co/X7N17ps/main.png" style="border-radius: 10px;" alt="Logo" width="" height="250">
   </a>
+
+  <div align="center">
+  <h2 align="center">Stats</h2 >
+  
+  ![GitHub forks](https://img.shields.io/github/forks/satendra03/trip-planner-by-satendra) <br/>
+  ![GitHub Repo stars](https://img.shields.io/github/stars/satendra03/trip-planner-by-satendra) <br/>
+  ![GitHub watchers](https://img.shields.io/github/watchers/satendra03/trip-planner-by-satendra)  
+</div>
 
   <h3>AI-Based Trip Planner</h3>
 

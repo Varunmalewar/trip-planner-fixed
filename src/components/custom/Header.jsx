@@ -15,12 +15,13 @@ import { Link } from "react-router-dom";
 import ThemeToggle from "../constants/ThemeToggle.jsx";
 
 function Header({headerRef}) {
-  const { user, isAuthenticated, logout, loginWithPopup } =
+  const { user, isAuthenticated, logout, loginWithPopup, loginWithRedirect } =
     useContext(LogInContext);
   const LogOut = () => {
     logout();
   };
   const LogIn = () => {
+    // loginWithRedirect();
     loginWithPopup();
   };
 

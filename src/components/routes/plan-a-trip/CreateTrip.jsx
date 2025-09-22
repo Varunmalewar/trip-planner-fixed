@@ -1,6 +1,6 @@
 import { Input } from "@/components/ui/input";
 import React, { useContext, useEffect, useState } from "react";
-import GooglePlacesAutocomplete from "react-google-places-autocomplete";
+import Autocomplete from "react-google-autocomplete";
 import {
   PROMPT,
   SelectBudgetOptions,
@@ -45,6 +45,8 @@ function CreateTrip({createTripPageRef}) {
     loginWithPopup();
   };
 
+  
+
   const SaveUser = async () => {
     const User = JSON.parse(localStorage.getItem("User"));
     const id = User?.email;
@@ -77,6 +79,24 @@ function CreateTrip({createTripPageRef}) {
     });
     setIsLoading(false);
     localStorage.setItem("Trip", JSON.stringify(TripData));
+    localStorage.setItem("UserSelection", JSON.stringify(formData));
+
+  //   const toDownload = {
+  //     userSelection: formData,
+  //     tripData: TripData,
+  //   }
+
+  // const fileData = new Blob([JSON.stringify(toDownload, null, 2)], { type: 'application/json' });
+  // const url = URL.createObjectURL(fileData);
+  // const link = document.createElement('a');
+  // link.href = url;
+  // link.download = `Trip_${id}.json`;
+  // document.body.appendChild(link);
+  // link.click();
+  // document.body.removeChild(link);
+  // URL.revokeObjectURL(url);
+
+
     navigate("/my-trips/" + id);
   };
 
@@ -155,30 +175,19 @@ function CreateTrip({createTripPageRef}) {
             </span>{" "}
             🏖️
           </h2>
-          <ReactGoogleAutocomplete
-            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 text-center"
-            apiKey={import.meta.env.VITE_GOOGLE_MAP_API_KEY}
-            autoFocus
-            onPlaceSelected={(place) => {
-              setPlace(place);
-              handleInputChange("location", place.formatted_address);
-            }}
-            placeholder="Enter a City"
-          />
 
-          {/* Not using this as this was not accepting style and all */}
-          {/* <GooglePlacesAutocomplete
-            className="bg-red-500"
-            apiKey={import.meta.env.VITE_GOOGLE_MAP_API_KEY}
-            selectProps={{
-              value: place,
-              onChange: (place) => {
-                setPlace(place);
-                handleInputChange("location", place.label);
-              },
-              placeholder: "Search for a location...",
-            }}
-          /> */}
+{/* This is working */}
+{/* check which place is working or not */}
+<Autocomplete
+  apiKey={import.meta.env.VITE_GOOGLE_MAP_API_KEY}
+  className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 text-center"
+  onPlaceSelected={(place) => {
+    setPlace(place);
+    console.log(place);
+    console.log("selected:", place.name);
+    handleInputChange("location", place.formatted_address);
+  }}
+/>
         </div>
 
         <div className="day">
@@ -208,8 +217,18 @@ function CreateTrip({createTripPageRef}) {
             </span>{" "}
             💳
           </h2>
-          <div className="options grid grid-cols-1 gap-5 md:grid-cols-3">
-            {SelectBudgetOptions.map((item) => {
+          {/* <div className="options grid grid-cols-1 gap-5 md:grid-cols-3"> */}
+          <Input
+            className="text-center"
+            placeholder="₹ 5000"
+            type="number"
+            min="1000"
+            max="100000"
+            // name="noOfDays"
+            required
+            onChange={(budget) => handleInputChange("Budget", budget.target.value)}
+          />
+            {/* {SelectBudgetOptions.map((item) => {
               return (
                 <div
                   onClick={(e) => handleInputChange("Budget", item.title)}
@@ -231,8 +250,8 @@ function CreateTrip({createTripPageRef}) {
                   <p className="bg-gradient-to-b from-primary/90 to-primary/60 bg-clip-text text-transparent">{item.desc}</p>
                 </div>
               );
-            })}
-          </div>
+            })} */}
+          {/* </div> */}
         </div>
 
         <div className="people">
