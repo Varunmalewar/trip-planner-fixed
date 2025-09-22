@@ -1,5 +1,5 @@
  <div align="center">
- <h1>Project Discontinued (Temporarily) 🚨</h1>
+ <h1>Project  🚨</h1>
  <h3>This project is currently discontinued as it has started incurring charges on due to google cloud api. I will try to make some changes to optimize it. Till then, it remains inactive.</h3>
  <br />
 <h3>If you'd like to support or help fund this project to keep it running, You can make small contibutions. Your support would be greatly appreciated! 🙌 -->
